@@ -12,24 +12,20 @@ class command {
                 array(
                     'name' => 'reload',
                     'usage' => 'Wrapper command used for reloading site with latest public files and sql backup',
-                    'options' => array(
-                        '--reload' => 'Command for reloading site files',
-                    ),
-                    'arguments' => array ()
         );
     }
 
     /**
-     * 
-     * @param \diversen\parseArgv $args
+     * Run the reload command
+     * @return type
      */
-    public function runCommand($args) {
-
-        if ($args->getFlag('reload')) {
-            return $this->reload();
-        }
+    public function runCommand() {
+        return $this->reload();
     }
 
+    /**
+     * Reload public files and latest backup
+     */
     public function reload() {
         common::needRoot();
         $command = "./coscli.sh db --load-dump";
@@ -38,5 +34,4 @@ class command {
         $command = "./coscli.sh backup --public-restore";
         common::execCommand($command);
     }
-
 }
