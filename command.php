@@ -32,10 +32,10 @@ class command {
 
     public function reload() {
         common::needRoot();
-        $command = "./coscli db --load-dump";
+        $command = "./coscli.sh db --load-dump";
         common::execCommand($command);
 
-        $command = "./coscli backup --public-restore";
+        $command = "./coscli.sh backup --public-restore";
         common::execCommand($command);
     }
 
