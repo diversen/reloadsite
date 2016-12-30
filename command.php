@@ -7,7 +7,7 @@ use diversen\cli\common;
 class command {
 
     // ./coscli.sh reload --reload
-    public function getHelp() {
+    public function getCommand() {
         return
                 array(
                     'name' => 'reload',
